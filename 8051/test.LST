@@ -1,0 +1,50 @@
+C51 COMPILER V8.12   TEST                                                                  12/12/2016 21:13:38 PAGE 1   
+
+
+C51 COMPILER V8.12, COMPILATION OF MODULE TEST
+OBJECT MODULE PLACED IN test.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE test.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX51.H>
+   2          #include "delay.h"
+   3          #include "lcd16x2.h"
+   4          void main()
+   5          {
+   6   1      unsigned char cmd[5]={0x38,0x0e,0x01,0x06,0x80};
+   7   1      unsigned char s[20] = "Vanker Praful";
+   8   1      unsigned char i;
+   9   1              for(i=0;i<5;i++)
+  10   1              {
+  11   2               lcdcmd(cmd[i]);
+  12   2               delay(100);
+  13   2              }
+  14   1              for(i=0;s[i];i++)
+  15   1              {
+  16   2                      lcddata(s[i]);
+  17   2                      delay(100);
+  18   2              }
+  19   1              while(1)
+  20   1              {
+  21   2                      for(i=0;s[i];i++)
+  22   2                      {
+  23   3                              lcdcmd(0x18);
+  24   3                              delay(1000);
+  25   3                      }
+  26   2              }
+  27   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    145    ----
+   CONSTANT SIZE    =     25    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      25
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
