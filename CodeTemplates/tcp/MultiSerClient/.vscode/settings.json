@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "client.h": "c",
+        "header.h": "c",
+        "server.h": "c",
+        "stdio.h": "c"
+    }
+}

@@ -1,6 +1,8 @@
 SHELL = /bin/sh
 OBJS =  server.c 
 INCLUDE = -I../common/ 
+INCLUDE += -I./ 
+
 CFLAG = -Wall -g
 CC = gcc
 #CC = g++
