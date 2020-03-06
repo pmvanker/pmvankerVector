@@ -1,0 +1,18 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CC	makefile	/^CC = gcc$/;"	m
+CFLAG	makefile	/^CFLAG = -Wall$/;"	m
+CLIENT	makefile	/^CLIENT = .\/client\/client.c $/;"	m
+LIBS	makefile	/^LIBS = -pthread$/;"	m
+MAXLINE	client/client.c	11;"	d	file:
+MAX_BUFFER	server/server.c	18;"	d	file:
+SERVER	makefile	/^SERVER = .\/server\/server.c $/;"	m
+ServerThread	server/server.c	/^void *ServerThread(void *ptr)$/;"	f
+main	client/client.c	/^int main(int argc, char *argv[]) $/;"	f
+main	server/server.c	/^int main(int argc, char *argv[])$/;"	f
+port	client.py	/^port = 4000				$/;"	v
+s	client.py	/^s = socket.socket()		 $/;"	v
