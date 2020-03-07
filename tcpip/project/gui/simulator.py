@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from tkinter import *
 import socket	
 import time
@@ -8,7 +9,7 @@ msg = 'Hi Client i am your server'
 
 mainwindow = Tk()
 mainwindow.title("simulator vvdn/2154")
-mainwindow.geometry("500x600") 
+mainwindow.geometry("600x600") 
 
 #output list
 output_list = Listbox(mainwindow)
@@ -58,14 +59,20 @@ def menu_init():
 
 class client_socket:
     def __init__(self, ip, port):
-        self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.server_socket = 0;
         self.ip=ip
         self.port=port
     def connect_server(self):
-        self.server_socket.connect((self.ip,int(port)))
+        self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.port = int(ent_port.get())
+        self.ip = ent_ip.get()
+        self.server_socket.connect((self.ip,self.port))
         log("connected with server"+" ip = "+self.ip+" port = "+ str(self.port) )
+    def disconnect_server(self):
+        self.server_socket.shutdown(socket.SHUT_RDWR)
+        self.server_socket.close();
+        log("disconnected with server"+" ip = "+self.ip+" port = "+ str(self.port) )
     def send_msg(self):
-        ent_msg.update()
         msg = ent_msg.get()
         log("sended Message"+msg)
         self.server_socket.send(bytes(str(msg),'utf-8'))	
@@ -73,16 +80,18 @@ class client_socket:
     def start_test(self):
         for i in range(30):
             self.server_socket.send(bytes('command'+str(i),'utf-8'))
-            time.sleep(1/100);
+#            time.sleep(1/100);
 
 def main():
     client = client_socket(ip,port)
-    connect_btn = Button(mainwindow, text="connect", width=10, command=client.connect_server)
+    connect_btn = Button(mainwindow, text="connect", width=10, command=client.connect_server, fg="green")
     connect_btn.grid(row=4,column=0)
     send_btn = Button(mainwindow, text="send", width=10, command=client.send_msg)
     send_btn.grid(row=4,column=1)
     start_test_btn = Button(mainwindow, text="Start Test", width=10, command=client.start_test)
     start_test_btn.grid(row=4,column=2)
+    disconnect_btn = Button(mainwindow, text="disconnect", width=10, command=client.disconnect_server, fg="red")
+    disconnect_btn.grid(row=5,column=0)
     
 if __name__ == "__main__":
     menu_init()
