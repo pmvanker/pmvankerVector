@@ -35,6 +35,9 @@ int sfd,len,ret;
 	}
 	perror("connect");
 	printf("enter the data\n");
-	scanf("%s",a);
-	write(sfd,a,strlen(a));
+	while(1)
+	{
+		scanf("%s",a);
+		write(sfd,a,strlen(a));
+	}
 }

@@ -7,12 +7,38 @@
 CC	makefile	/^CC = gcc$/;"	m
 CFLAG	makefile	/^CFLAG = -Wall$/;"	m
 CLIENT	makefile	/^CLIENT = .\/client\/client.c $/;"	m
+FALSE	server/multi_client.c	15;"	d	file:
 LIBS	makefile	/^LIBS = -pthread$/;"	m
 MAXLINE	client/client.c	11;"	d	file:
-MAX_BUFFER	server/server.c	18;"	d	file:
+MAX_BUFFER	server/server.c	19;"	d	file:
+MULTI_CLIENT	server/server.c	21;"	d	file:
+MultiClientServerThread	server/server.c	/^void *MultiClientServerThread(void *ptr)$/;"	f
 SERVER	makefile	/^SERVER = .\/server\/server.c $/;"	m
 ServerThread	server/server.c	/^void *ServerThread(void *ptr)$/;"	f
+TRUE	server/multi_client.c	14;"	d	file:
+__init__	gui/simulator.py	/^    def __init__(self, ip, port):$/;"	m	class:client_socket
+about_app	gui/simulator.py	/^def about_app():$/;"	f
+client_socket	gui/simulator.py	/^class client_socket:$/;"	c
+connect_server	gui/simulator.py	/^    def connect_server(self):$/;"	m	class:client_socket
+disconnect_server	gui/simulator.py	/^    def disconnect_server(self):$/;"	m	class:client_socket
+ent_ip	gui/simulator.py	/^ent_ip=Entry(mainwindow, textvariable=ip)$/;"	v
+ent_msg	gui/simulator.py	/^ent_msg=Entry(mainwindow, textvariable=msg)$/;"	v
+ent_port	gui/simulator.py	/^ent_port=Entry(mainwindow, textvariable=port)$/;"	v
+ip	gui/simulator.py	/^ip = '127.0.0.1'$/;"	v
+lbl_ip	gui/simulator.py	/^lbl_ip = Label(mainwindow, text='Ip Address')$/;"	v
+lbl_port	gui/simulator.py	/^lbl_port = Label(mainwindow, text='Port No')$/;"	v
+log	gui/simulator.py	/^def log(log_str):$/;"	f
 main	client/client.c	/^int main(int argc, char *argv[]) $/;"	f
+main	gui/simulator.py	/^def main():$/;"	f
+main	server/multi_client.c	/^int main(int argc , char *argv[]) $/;"	f
 main	server/server.c	/^int main(int argc, char *argv[])$/;"	f
+mainwindow	gui/simulator.py	/^mainwindow = Tk()$/;"	v
+menu_init	gui/simulator.py	/^def menu_init():$/;"	f
+msg	gui/simulator.py	/^msg = 'Hi Client i am your server'$/;"	v
+output_list	gui/simulator.py	/^output_list = Listbox(mainwindow)$/;"	v
 port	client.py	/^port = 4000				$/;"	v
+port	gui/simulator.py	/^port = 4000$/;"	v
 s	client.py	/^s = socket.socket()		 $/;"	v
+send_msg	gui/simulator.py	/^    def send_msg(self):$/;"	m	class:client_socket
+socket_creation	server/server.c	/^int socket_creation(int port)$/;"	f
+start_test	gui/simulator.py	/^    def start_test(self):$/;"	m	class:client_socket
